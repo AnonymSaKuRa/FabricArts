@@ -1,0 +1,231 @@
+/* 変数 */
+$color-text: #000;
+$color-text-sub: #898989;
+$color-project-bg: #FDF8EB;
+$color-label: #fff;
+$color-label-bg: #E40065;
+
+/* @mixin */
+@mixin inner($w: 90%, $mw: 1170px) {
+    width: $w;
+    max-width: $mw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex($a: center, $j: space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: $a;
+    justify-content: $j;
+}
+
+@mixin py($pt: 100px) {
+    padding-top: $pt;
+}
+
+/* いつもの
+-------------------------------------------------------*/
+body {
+    color: $color-text;
+    font-family:
+        "Helvetica",
+        "Helvetica Neue",
+        "Yu Gothic",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Meiryo",
+        sans-serif;
+    font-size: 14px;
+    line-height: (24 / 14);
+    letter-spacing: (50 / 1000) + em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* header
+-------------------------------------------------------*/
+/* header */
+.header {
+    @include py(70px);
+
+    &__inner {
+        @include inner();
+        @include flex(bottom);
+    }
+}
+
+/* gnav */
+.gnav {
+    &__list {
+        @include flex();
+
+    }
+
+    &__link {
+        color: $color-text;
+        margin-left: 30px;
+    }
+}
+
+/* main
+-------------------------------------------------------*/
+/* mv */
+.mv {
+    @include py();
+    width: 100%;
+}
+
+/* unit */
+.unit {
+    @include py();
+
+    &__inner {
+        @include inner();
+    }
+
+    &__subttl {
+        margin-bottom: 20px;
+        color: $color-text-sub;
+        font-size: 12px;
+        line-height: (20 / 12);
+    }
+
+    &__ttl {
+        font-size: 38px;
+        font-weight: normal;
+        line-height: (49 / 38);
+
+        &::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 1px;
+            margin: 30px 0 60px;
+            background-color: #000
+        }
+    }
+
+    &__flex {
+        @include flex(flex-start);
+    }
+
+    &__text {
+        width: (700 / 1170) * 100%;
+    }
+
+    &__text-ja {
+        margin-bottom: 40px;
+    }
+
+    &__text-en {
+        margin-bottom: 60px;
+        font-style: italic;
+    }
+}
+
+/* card */
+.card {
+    &__pic {
+        margin-bottom: 30px;
+    }
+
+    &__ttl {
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .categoly {
+        font-size: 12px;
+        color: $color-text-sub;
+    }
+
+    &__text {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    &__info {
+        margin-top: 40px;
+        font-size: 14px;
+        line-height: (24 / 14);
+    }
+}
+
+/* label */
+.label {
+    display: inline;
+    padding: 5px 11px;
+    border-radius: 10px;
+    color: $color-label;
+    background-color: $color-label-bg;
+}
+
+/* project */
+.project {
+    margin-top: 100px;
+    padding: 100px 0;
+    background-color: $color-project-bg;
+
+    &__inner {
+        @include inner();
+    }
+
+    .card {
+        width: (560 / 1170) * 100%;
+    }
+}
+
+/* campany */
+.campany {
+    .unit__inner {
+        @include flex(flex-start);
+    }
+}
+
+/* info */
+.info {
+    .card {
+        margin-bottom: 60px;
+        padding: 150px 0 160px 80px;
+        color: $color-label;
+        background: url(../images/bg_project01.jpg) no-repeat bottom center/cover;
+
+        &:nth-of-type(2) {
+            background: url(../images/bg_project02.jpg) no-repeat bottom center/cover;
+        }
+    }
+}
+
+/* other */
+.other {
+    .card {
+        width: (370 / 1170) * 100%;
+    }
+}
+
+/* footer
+-------------------------------------------------------*/
+.footer {
+    padding: 78px 200px;
+    text-align: right;
+    color: $color-text-sub;
+
+    &__copy {
+        font-size: 12px;
+    }
+}
